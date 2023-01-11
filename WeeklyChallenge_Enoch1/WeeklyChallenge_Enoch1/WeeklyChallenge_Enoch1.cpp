@@ -41,26 +41,31 @@ void GetName()
 */
 void ErrorCheckInput()
 {
-    int chances = 3;
+    int chances = 2;
     std::string name;
     name = "Kwame Nkrumah";
     if (input != name)
     {
-        for (int i = 0; i < chances; i++)
+        int i = 0;
+        while (input != name && i < chances)
         {
             std::cout << "\n";
             std::cout << "Try again." << "\n";
             std::cout << "Who is the first president of Ghana?: ";
-            std::cin >> input;
+            getline(std::cin, input);
+            i++;
         }
-        std::cout << "\n";
-        std::cout << "You Lost!";
-        std::cout << "\n";
-    }
-    else
-    {
-        std::cout << "\n";
-        std::cout << "You won!";
-        std::cout << "\n";
+        if (input != name)
+        {
+            std::cout << "\n";
+            std::cout << "You Lost!";
+            std::cout << "\n";
+        }
+        else
+        {
+            std::cout << "\n";
+            std::cout << "You won!";
+            std::cout << "\n";
+        }
     }
 }
